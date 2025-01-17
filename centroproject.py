@@ -3,6 +3,8 @@ import pandas as pd
 #import openpyxl
 import joblib
 
+st.info("Keakuratan model machine learning berada di 93,6%. Diperlukan bahan training tambahan dan bantuan human checking untuk memastikan keakuratan maksimal.")
+
 # Load the model from the file
 clf = joblib.load('classifier_model.pkl')
 vectorizer = joblib.load('vectorizer.pkl')
