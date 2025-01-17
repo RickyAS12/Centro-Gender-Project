@@ -1,0 +1,4 @@
+sklearn
+joblib
+pandas
+streamlit
