@@ -27,7 +27,7 @@ st.header("Upload File")
 uploaded_file = st.file_uploader("Input File:")
 if uploaded_file is not None:
     df1=pd.read_excel(uploaded_file)
-    df1['FullName'] = df1['FullName'].fillna('Unknown')
+    df1['FullName'] = df1['FullName'].fillna('NULL')
     st.write("Tampilan Tabel Keseluruhan :")
     st.dataframe(df1)
     names = df1['FullName'].tolist()
