@@ -17,7 +17,7 @@ if test_name != "" :
 
     test_predict = vectorizer.transform([test_name])
     res = clf.predict(test_predict)
-    if test_name == 'Null':
+    if test_name == 'NULL':
         st.write('Female')
     else :
         st.write(jk_label_for_test_predict[int(res)])
@@ -34,7 +34,7 @@ if uploaded_file is not None:
     # Map predictions to the gender labels
     jk_label = {1: "Male", 0: "Female"}
     df1['Gender ML'] = [jk_label[int(pred)] for pred in predictions]
-    df1['Gender ML'] = df1['Gender ML'].where(df1['FullName'] != 'Null', 'Female')
+    df1['Gender ML'] = df1['Gender ML'].where(df1['FullName'] != 'NULL', 'Female')
     st.write("Tampilan Tabel Keseluruhan :")
     st.dataframe(df1)
     
