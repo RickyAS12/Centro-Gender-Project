@@ -27,6 +27,9 @@ st.header("Upload File")
 uploaded_file = st.file_uploader("Input File:")
 if uploaded_file is not None:
     df1=pd.read_excel(uploaded_file)
+    df1['FullName'] = df1['FullName'].fillna('Unknown')
+    st.write("Tampilan Tabel Keseluruhan :")
+    st.dataframe(df1)
     names = df1['FullName'].tolist()
     # Transform all names at once using the vectorizer
     names_transformed = vectorizer.transform(names)
@@ -36,8 +39,6 @@ if uploaded_file is not None:
     jk_label = {1: "Male", 0: "Female"}
     df1['Gender ML'] = [jk_label[int(pred)] for pred in predictions]
     df1['Gender ML'] = df1['Gender ML'].where(df1['FullName'] != 'NULL', 'Female')
-    st.write("Tampilan Tabel Keseluruhan :")
-    st.dataframe(df1)
     
     # Mapping
     gender_mapping = {'Male': 'Male', 'Female': 'Female'}
