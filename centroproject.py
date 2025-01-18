@@ -26,7 +26,7 @@ st.header("Upload File")
 uploaded_file = st.file_uploader("Input File:")
 if uploaded_file is not None:
     df1=pd.read_excel(uploaded_file)
-    names = names = df1['FullName'].tolist()
+    names = df1['FullName'].tolist()
     # Transform all names at once using the vectorizer
     names_transformed = vectorizer.transform(names)
     # Predict gender for all names at once
